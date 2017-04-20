@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		username:{{username}} <br>
+		未完成事项:  <br />
+		{% for x in unfinished %}
+		<li><a href="/business/detail?id={{x.id}}">{{x.title}}</a></li>
+		{% endfor %}
+		已完成事项:  <br />
+		{% for x in finished %}
+		<li><a href="/business/detail?id={{x.id}}">{{x.title}}</a></li>
+		{% endfor %}
+		过期事项:    <br />
+		{% for x in disabled %}
+		<li><a href="/business/detail?id={{x.id}}">{{x.title}}</a></li>
+		{% endfor %}
+		<a href='/business/create'>新建事项</a> <br />
+		<a href='/logout'>注销</a>
+	</body>
+</html>
